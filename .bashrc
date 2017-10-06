@@ -5,9 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+alias sudo="sudo "
+
+alias ls='ls --color=auto -a'
 PS1='[\u@\h \W]\$ '
 
-alias ls="ls -lah"
+alias emacs='emacs -nw'
 
-alias vim="vim -c 'startinsert'"
+export EDITOR='emacs'
