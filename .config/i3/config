@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # --- custom config start ---
 
@@ -57,14 +57,14 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus with mod key plus tab
-bindsym $mod+Tab focus right
-bindsym $mod+Shift+Tab focus left
+bindsym mod1+Tab focus right
+bindsym mod1+Shift+Tab focus left
 
 # Move windows with super key
-bindsym Mod4+Left move left
-bindsym Mod4+Down move down
-bindsym Mod4+Up move up
-bindsym Mod4+Right move right
+bindsym $mod+Left move left
+bindsym $mod+Down move down
+bindsym $mod+Up move up
+bindsym $mod+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
