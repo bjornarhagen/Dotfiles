@@ -12,4 +12,5 @@ PS1='[\u@\h \W]\$ '
 
 alias emacs='emacs -nw'
 
-export EDITOR='emacs'
+alias v='vim'
+export EDITOR='vim'
