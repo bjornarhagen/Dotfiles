@@ -1,8 +1,10 @@
+!Bjornar's Xresources
+
 URxvt*font:     xft:monospace:pixelsize=16
 
 URxvt.internalBorder: 15
 URxvt*scrollBar: false
-URxvt.geometry: 100x30
+URxvt.geometry: 100x35
 
 Xft.autohint: 0
 Xft.antialias: 1
