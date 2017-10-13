@@ -19,5 +19,7 @@ alias emacs='emacs -nw'
 alias v='vim'
 export EDITOR='vim'
 
+alias nautilus='nautilus --no-desktop &'
+
 # Apply custom colorscheme
 (wal -r &)
