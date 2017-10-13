@@ -30,7 +30,6 @@ bg = ${xrdb:color2}
 width = 100%
 height = 30
 offset-x = 0%
-;offset-y = 10%
 radius = 0.0
 fixed-center = true
 
@@ -46,45 +45,30 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Misc Termsyn:size=8;1
-font-1 = FontAwesome:fontformat=truetype:size=12;1
-font-2 = sm4tik:pixelsize=10;1
+!font-0 = Misc Termsyn:size=8;1
+!font-1 = FontAwesome:fontformat=truetype:size=12;1
+!font-2 = sm4tik:pixelsize=10;1
+
+font-0 = Roboto:pixelsize=10;1
+font-1 = Roboto:pixelsize=10;1
+font-2 = ROboto:pixelsize=10;1
 
 modules-left = i3
 modules-center = date
 modules-right = volume
 
-tray-position = left
-tray-padding = 11
-tray-transparent = true
-tray-offset-y = 22
-tray-offset-x = -0
-tray-maxsize = 18
-tray-detached = true
+;tray-position = left
+;tray-padding = 11
+;tray-transparent = true
+;tray-offset-y = 22
+;tray-offset-x = -0
+;tray-maxsize = 18
+;tray-detached = true
 ;tray-background = #0063ff
 
 wm-restack = i3
 
 ;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-
-;[module/weather]
-;type = custom/script
-;interval = 60
-
-;format-background = ${colors.background-mod1}
-;format = <label>
-;format-prefix = " ⁣   "
-;format-suffix = "  "
-;format-prefix-foreground = ${colors.foreground-alt}
-;exec = python ~/.config/polybar/weather.py
-
 
 ;[module/mpd]
 ;type = internal/mpd
@@ -104,53 +88,30 @@ wm-restack = i3
 ;format-offline =
 ;format-stop =
 
-
 [module/i3]
 type = internal/i3
 
-
-
-; Available tokens:
-;   %mode%
-; Default: %mode%
 label-mode = %mode%
 label-mode-padding = 2
 label-mode-background = #e60053
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
+;Available: %name% %icon% %index% %output%
 label-focused = %index%
 label-focused-foreground = #ffffff
 label-focused-background = ${colors.background-alt}
 label-focused-underline = #fba922
 label-focused-padding = 4
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
+;Available %name% %icon% %index%
 label-unfocused = %index%
 label-unfocused-padding = 4
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
+;Available %name% %icon% %index%
 label-visible = %index%
 label-visible-underline = #555555
 label-visible-padding = 4
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
+;Available %name% %icon% %index%
 label-urgent = %index%
 label-urgent-foreground = #000000
 label-urgent-background = ${colors.background-alrt}
@@ -172,7 +133,6 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-
 [module/date]
 type = internal/date
 interval = 5
@@ -187,7 +147,6 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
 label = %date% %time%
-
 
 [module/volume]
 type = internal/volume
