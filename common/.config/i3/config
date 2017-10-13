@@ -3,6 +3,9 @@
 set $mod Mod4
 floating_modifier $mod
 
+# Hide border and titlebar
+new_window pixel 0
+
 # Gaps controls
 gaps inner 25
 bindsym Control+Shift+plus gaps inner current plus 25
