@@ -52,6 +52,8 @@ bindsym $mod+Down move down
 bindsym $mod+Up move up
 bindsym $mod+Right move right
 
+bindsym $mod+c move position center
+
 # split in horizontal orientation
 bindsym $mod+h split h
 
