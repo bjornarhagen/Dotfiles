@@ -107,20 +107,7 @@ wm-restack = i3
 
 [module/i3]
 type = internal/i3
-;
-;strip-wsnumbers = true
-;
-;label-focused-padding = 3
-;label-unfocused-padding = 3
-;
-;label-focused-background = ${colors.background-alt}
-label-unfocused-background = ${colors.background-unf}
-;
-;label-mode-padding = 0
-;label-mode-background = ${colors.background-unf}
-;
-;label-visible-underline = #555555
-;label-visible-padding = 4
+
 
 
 ; Available tokens:
@@ -204,36 +191,19 @@ label = %date% %time%
 
 [module/volume]
 type = internal/volume
+;master-soundcard = default
+;master-mixer = IEC958
 
-format-muted-background = #ffffff
-format-volume-background = #ffffff
-format-volume = "<ramp-volume>"
-label-muted = "x"
+;mapped = true
 
-; Only applies if <ramp-volume> is used
-ramp-volume-0 = 0
-ramp-volume-1 = 1
-ramp-volume-2 = 2
+format-volume = <ramp-volume> <label-volume>
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
 
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature%
-label-warn = %temperature%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
-
+format-muted = <label-muted>
+label-muted = 🔇 muted
+label-muted-foreground = #66
 
 [module/powermenu]
 type = custom/menu
