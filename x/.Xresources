@@ -1,42 +1,5 @@
 URxvt*font:     xft:monospace:pixelsize=16
 
-!*background: #0e181a
-!*foreground: #F7F2BF
-!
-! ! black
-!*color0:     #0e181a
-!*color8:     #000000
-!
-! ! red
-!*color1:     #EA9642
-!*color9:     #EA9642
-!
-! ! green
-!*color2:     #7B8166
-!*color10:    #7B8166
-!
-! ! yellow
-!*color3:     #FAE4A6
-!*color11:    #FAE4A6
-!
-! ! blue
-!*color4:     #58698C
-!*color12:    #58698C
-!
-! ! magenta
-!*color5:     #B23450
-!*color13:    #B23450
-!
-! ! cyan
-!*color6:     #56a8ac
-!*color14:    #56a8ac
-!
-! ! white
-!*color7:     #FFFFFF
-!*color15:    #DDDDDD
-
-
-
 URxvt.internalBorder: 15
 URxvt*scrollBar: false
 URxvt.geometry: 100x30
