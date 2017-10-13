@@ -140,6 +140,9 @@ bindsym $mod+r mode "resize"
 # Focus on windows when hovering with mouse?
 focus_follows_mouse no
 
+# Get last wal config
+exec_always --no-startup-id wal -R
+
 # Get colors from Xresources
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
