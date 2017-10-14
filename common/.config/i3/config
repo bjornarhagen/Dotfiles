@@ -45,11 +45,11 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# kill focused window
-bindsym Control+Shift+w kill
-
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run
+
+# kill focused window
+bindsym Control+Shift+w kill
 
 # change focus with mod key plus tab
 bindsym mod1+Tab focus right
@@ -61,6 +61,7 @@ bindsym $mod+Down move down
 bindsym $mod+Up move up
 bindsym $mod+Right move right
 
+# Center focused window
 bindsym $mod+c move position center
 
 # split in horizontal orientation
@@ -99,7 +100,6 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -111,7 +111,6 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
