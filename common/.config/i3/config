@@ -13,6 +13,11 @@ bindsym $mod+Shift+plus  gaps inner current plus 25
 bindsym $mod+Shift+minus gaps inner current minus 25
 bindsym $mod+Shift+0     gaps inner current set 0
 
+bindsym $mod+Shift+Up    gaps inner current horizontal plus 25
+bindsym $mod+Shift+Down  gaps inner current horizontal minus 25
+bindsym $mod+Shift+Right gaps inner current vertical plus 25
+bindsym $mod+Shift+Left  gaps inner current vertical minus 25
+
 # Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
