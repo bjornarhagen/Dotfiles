@@ -48,6 +48,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run
 
+# Lock screen
+bindsym $mod+l exec --no-startup-id $HOME/.config/i3/screen-lock.sh
+
 # kill focused window
 bindsym Control+Shift+w kill
 
