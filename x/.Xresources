@@ -1,0 +1,21 @@
+! Bjornars Xresources
+
+URxvt*font:     xft:Roboto Mono:pixelsize=16
+
+URxvt.internalBorder: 25
+URxvt*scrollBar: false
+URxvt.geometry: 100x35
+
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+! Enables copy/paste with Ctrl-Shift-C/V
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+

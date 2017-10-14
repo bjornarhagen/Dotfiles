@@ -4,12 +4,19 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+PS1='[\u@\h \W]\$ '
 
+# Allows you to run aliases with sudo before them
 alias sudo="sudo "
 
 alias ls='ls --color=auto -a'
-PS1='[\u@\h \W]\$ '
 
 alias emacs='emacs -nw'
 
-export EDITOR='emacs'
+alias v='vim'
+export EDITOR='vim'
+
+alias nautilus='nautilus --no-desktop &'
+
+# Apply custom colorscheme
+(wal -r &)

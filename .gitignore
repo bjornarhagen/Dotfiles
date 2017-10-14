@@ -1,11 +1,2 @@
-Downloads/
-.cache/
-.gnupg/
-.local/
-.Xauthority
-.viminfo
-.bash_history
-.bash_logout
-.bash_profile
-.vim/.netrwhist
+vim/.vim/plugged
 .gitconfig
