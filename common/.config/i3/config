@@ -18,6 +18,8 @@ bindsym $mod+Shift+Up    gaps outer current vertical plus 25
 bindsym $mod+Shift+Down  gaps outer current vertical minus 25
 bindsym $mod+Shift+Right gaps outer current horizontal plus 25
 bindsym $mod+Shift+Left  gaps outer current horizontal minus 25
+# make space 1920x1080
+bindsym $mod+Shift+c gaps outer current vertical set 180; gaps outer current horizontal set 760
 
 # Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
