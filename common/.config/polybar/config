@@ -55,7 +55,26 @@ font-2 = ROboto:pixelsize=10;1
 
 modules-left = i3
 modules-center = date
-modules-right = volume
+modules-right = audio-device-0 audio-device-1 audio-device-2 volume
+
+[module/audio-device-0]
+type = custom/text
+content = "Screen"
+click-left = audio-device.sh -s 0
+click-right = audio-device.sh -c 0
+
+[module/audio-device-1]
+type = custom/text
+content = " | Yeti | "
+click-left = audio-device.sh -s 1
+click-right = audio-device.sh -c 0
+
+[module/audio-device-2]
+type = custom/text
+content = "3.5mm"
+click-left = audio-device.sh -s 2
+click-right = audio-device.sh -c 0
+
 
 ;tray-position = left
 ;tray-padding = 11
