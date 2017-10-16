@@ -57,6 +57,12 @@ modules-left = i3
 modules-center = date
 modules-right = powermenu audio-device-0 audio-device-1 audio-device-2 volume
 
+[module/power]
+type = custom/text
+content = "Shutdown"
+click-left = shutdown 2s; notify-send "Shutting down ..."
+padding-right = 10
+
 [module/audio-device-0]
 type = custom/text
 content = "Screen"
@@ -210,7 +216,7 @@ menu-1-1 = reboot
 menu-1-1-exec = sudo reboot
 
 menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
+menu-2-0-exec = shutdown 2s; notify-send "Shutting down..."
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
