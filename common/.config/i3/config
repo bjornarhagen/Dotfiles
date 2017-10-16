@@ -11,7 +11,7 @@ gaps inner 50 # initial gaps
 
 bindsym $mod+Shift+plus  gaps inner current plus 25
 bindsym $mod+Shift+minus gaps inner current minus 25
-bindsym $mod+Shift+0     gaps inner current set 0
+bindsym $mod+Shift+0     gaps inner current set 0; gaps outer current set 0
 
 # i3 gaps feature 54 spesific
 bindsym $mod+Shift+Up    gaps outer current vertical plus 25
