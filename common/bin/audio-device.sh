@@ -1,6 +1,7 @@
 #!/bin/bash
 
-currentSink=$(pactl list short | grep RUNNING | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,')
+currentSink=$( pactl list short sinks | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,' | head -n 1 )
+currentVolume=$( pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $currentSink + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' )
 
 if [ "$1" == "-s" ] || [ "$1" == "--set-device" ]; then
 	if [ ! -z "$2" ]; then
@@ -8,7 +9,7 @@ if [ "$1" == "-s" ] || [ "$1" == "--set-device" ]; then
 			streamId=$(echo $stream|cut '-d ' -f1)
 			newSink="$2"
 
-			echo "moving stream $streamId"
+			notify-send "Audio device changed" "Changed to $newSink"
 
 			pactl move-sink-input "$streamId" "$newSink"
 			pactl set-default-sink "$newSink"
@@ -20,6 +21,7 @@ fi
 if [ "$1" == "-c" ] || [ "$1" == "--change-volume" ]; then
 	if [ ! -z "$2" ]; then
 		pactl set-sink-volume "$currentSink" "$2";
+		notify-send "Volume: $currentVolume"
 	fi
 fi
 
