@@ -55,7 +55,7 @@ font-2 = ROboto:pixelsize=10;1
 
 modules-left = i3
 modules-center = date
-modules-right = audio-device-0 audio-device-1 audio-device-2 volume
+modules-right = powermenu audio-device-0 audio-device-1 audio-device-2 volume
 
 [module/audio-device-0]
 type = custom/text
@@ -112,13 +112,15 @@ type = internal/i3
 
 label-mode = %mode%
 label-mode-padding = 2
-label-mode-background = #e60053
+;label-mode-background = #e60053
+:label-mode-background = ${xrdb:color2}
+label-mode-background = #ff0000
 
 ;Available: %name% %icon% %index% %output%
 label-focused = %index%
 label-focused-foreground = #ffffff
-label-focused-background = ${colors.background-alt}
-label-focused-underline = #fba922
+label-focused-background = ${xrdb:color1}
+label-focused-underline = #ffffff
 label-focused-padding = 4
 
 ;Available %name% %icon% %index%
@@ -188,11 +190,11 @@ type = custom/menu
 
 format-spacing = 1
 
-label-open = 
-label-open-background = ${colors.background-mod}
+label-open = Open
+;label-open-background = ${colors.background-mod}
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
-label-close-background = ${colors.background-mod}
+;label-close-background = ${colors.background-mod}
 label-close-foreground = ${colors.secondary}
 label-separator = " "
 label-separator-foreground = ${colors.foreground-alt}
