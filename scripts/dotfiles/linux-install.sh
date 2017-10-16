@@ -14,7 +14,8 @@ function stow_load {
 	done
 }
 
-stow_load ~ scripts
+mkdir ~/scripts
+stow_load ~/scripts scripts
 stow_load ~ common
 stow_load ~ cron
 stow_load ~ bash
