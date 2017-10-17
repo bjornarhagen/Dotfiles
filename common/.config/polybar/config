@@ -235,12 +235,12 @@ menu-0-1-exec = menu-open-2
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+menu-1-1-exec = sudo shutdown -r
 
 menu-2-0 = power off
-menu-2-0-exec = shutdown 2s; notify-send "Shutting down..."
+menu-2-0-exec = notify-send "Shutting down..."; sleep 2s; shutdown now
 menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+menu-2-1-exec = menu-open-0; notify-send "Shutdown aborted"; shutdown -c
 
 
 [settings]
