@@ -21,7 +21,15 @@ fi
 if [ "$1" == "-c" ] || [ "$1" == "--change-volume" ]; then
 	if [ ! -z "$2" ]; then
 		pactl set-sink-volume "$currentSink" "$2";
-		notify-send "Volume: $currentVolume"
+
+		ID=$(cat $HOME/.config/dunst/.volume)
+		dunsify -p "$ID"
+
+		if [[ $ID -gt "0" ]]; then
+			dunstify -p -r $ID "Volume: $currentVolume" > $HOME/.config/dunst/.volume
+		else
+			dunstify -p "Volume: $currentVolume" > $HOME/.config/dunst/.volume
+		fi
 	fi
 fi
 
