@@ -88,20 +88,20 @@ padding-right = 10
 [module/audio-device-0]
 type = custom/text
 content = "Screen"
-click-left = audio-device.sh -s 0
-click-right = audio-device.sh -c 0
+click-left = audio-device -s 0
+click-right = audio-device -c 0
 
 [module/audio-device-1]
 type = custom/text
 content = " | Yeti | "
-click-left = audio-device.sh -s 1
-click-right = audio-device.sh -c 0
+click-left = audio-device -s 1
+click-right = audio-device -c 0
 
 [module/audio-device-2]
 type = custom/text
 content = "3.5mm"
-click-left = audio-device.sh -s 2
-click-right = audio-device.sh -c 0
+click-left = audio-device -s 2
+click-right = audio-device -c 0
 
 
 ;tray-position = left

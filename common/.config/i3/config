@@ -4,16 +4,8 @@ set $mod Mod4
 floating_modifier $mod
 
 # Hide border and titlebar
-# new_window pixel 0
+new_window pixel 0
 hide_edge_borders both
-
-# Title bar format
-# We first set the titlebar font size to a large size to get a good padding amount.
-# We then use pango markup to force i3 to print with the desired font.
-# This gives us large titlebars with a small font. :P
-font pango:Roboto Mono 15
-for_window [class=".*"] title_format "<span font='Roboto Mono 7'> > %title</span>"
-#for_window [class=".*"] border pixel 0
 
 # Gaps controls
 gaps inner 50 # initial gaps
@@ -31,8 +23,8 @@ bindsym $mod+Shift+Left  gaps outer current horizontal minus 25
 bindsym $mod+Shift+c gaps outer current vertical set 180; gaps outer current horizontal set 760
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id audio-device.sh -c +5%       #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id audio-device.sh -c \-5%      #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id audio-device -c +5%       #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id audio-device -c \-5%      #decrease sound volume
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
