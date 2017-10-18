@@ -13,8 +13,7 @@ hide_edge_borders both
 # This gives us large titlebars with a small font. :P
 font pango:Roboto Mono 15
 for_window [class=".*"] title_format "<span font='Roboto Mono 7'> > %title</span>"
-
-for_window [class=".*"] border pixel 0
+#for_window [class=".*"] border pixel 0
 
 # Gaps controls
 gaps inner 50 # initial gaps
@@ -32,13 +31,13 @@ bindsym $mod+Shift+Left  gaps outer current horizontal minus 25
 bindsym $mod+Shift+c gaps outer current vertical set 180; gaps outer current horizontal set 760
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id audio-device.sh -c +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id audio-device.sh -c \-5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id audio-device.sh -c +5%       #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id audio-device.sh -c \-5%      #decrease sound volume
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id screen-brightness.sh -c 50 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id screen-brightness.sh -c 50  # decrease screen brightness
+bindsym XF86MonBrightnessUp   exec --no-startup-id sudo /home/bjornar/bin/screen-brightness -inc # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo /home/bjornar/bin/screen-brightness -dec # decrease screen brightness
 
 # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -132,7 +131,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+t reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
