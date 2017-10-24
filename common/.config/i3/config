@@ -7,10 +7,16 @@ floating_modifier $mod
 new_window pixel 0
 
 # Gaps controls
-gaps inner 25
-bindsym Control+Shift+plus gaps inner current plus 25
-bindsym Control+Shift+minus gaps inner current minus 25
-bindsym Control+Shift+0 gaps inner current set 0
+gaps inner 50 # initial gaps
+
+bindsym $mod+Shift+plus  gaps inner current plus 25
+bindsym $mod+Shift+minus gaps inner current minus 25
+bindsym $mod+Shift+0     gaps inner current set 0
+
+bindsym $mod+Shift+Up    gaps inner current horizontal plus 25
+bindsym $mod+Shift+Down  gaps inner current horizontal minus 25
+bindsym $mod+Shift+Right gaps inner current vertical plus 25
+bindsym $mod+Shift+Left  gaps inner current vertical minus 25
 
 # Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -30,17 +36,23 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Get last wal config
+exec_always --no-startup-id wal -R
+
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# kill focused window
-bindsym Control+Shift+w kill
-
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run
+
+# Lock screen
+bindsym $mod+l exec --no-startup-id $HOME/.config/i3/screen-lock.sh
+
+# kill focused window
+bindsym Control+Shift+w kill
 
 # change focus with mod key plus tab
 bindsym mod1+Tab focus right
@@ -52,6 +64,7 @@ bindsym $mod+Down move down
 bindsym $mod+Up move up
 bindsym $mod+Right move right
 
+# Center focused window
 bindsym $mod+c move position center
 
 # split in horizontal orientation
@@ -90,7 +103,6 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -102,7 +114,6 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -139,9 +150,6 @@ bindsym $mod+r mode "resize"
 
 # Focus on windows when hovering with mouse?
 focus_follows_mouse no
-
-# Get last wal config
-exec_always --no-startup-id wal -R
 
 # Get colors from Xresources
 set_from_resource $fg i3wm.color7 #f0f0f0
