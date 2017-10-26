@@ -1,0 +1,31 @@
+#!/bin/bash 
+
+file="/sys/class/backlight/intel_backlight/brightness"
+current=$(cat $file)
+
+dunst_file="$HOME/.config/dunst/.brightness"
+
+ID=$(cat $HOME/.config/dunst/.volume)
+dunstify -p "$ID"
+
+if [ "$1" == "-inc" ]; then
+	new=$((current + 100))
+	echo $new | sudo tee $file
+	
+	if [[ $ID -gt "0" ]]; then
+		dunstify -p -r $ID "Screen brightness $new" > $dunst_file
+	else
+		dunstify -p "Screen brightness $new" > $dunst_file
+	fi
+fi
+
+if [ "$1" == "-dec" ]; then
+        new=$((current - 100))
+        echo $new | sudo tee $file
+        
+        if [[ $ID -gt "0" ]]; then
+                dunstify -p -r $ID "Screen brightness $new" > $dunst_file
+        else
+                dunstify -p "Screen brightness $new" > $dunst_file
+        fi                                             
+fi

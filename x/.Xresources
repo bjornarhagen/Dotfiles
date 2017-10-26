@@ -4,7 +4,7 @@ URxvt*font:     xft:Roboto Mono:pixelsize=16
 
 URxvt.internalBorder: 25
 URxvt*scrollBar: false
-URxvt.geometry: 100x35
+URxvt.geometry: 130x35
 
 Xft.autohint: 0
 Xft.antialias: 1

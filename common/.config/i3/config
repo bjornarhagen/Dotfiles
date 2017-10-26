@@ -5,27 +5,31 @@ floating_modifier $mod
 
 # Hide border and titlebar
 new_window pixel 0
+hide_edge_borders both
 
 # Gaps controls
 gaps inner 50 # initial gaps
 
 bindsym $mod+Shift+plus  gaps inner current plus 25
 bindsym $mod+Shift+minus gaps inner current minus 25
-bindsym $mod+Shift+0     gaps inner current set 0
+bindsym $mod+Shift+0     gaps inner current set 0; gaps outer current set 0
 
-bindsym $mod+Shift+Up    gaps inner current horizontal plus 25
-bindsym $mod+Shift+Down  gaps inner current horizontal minus 25
-bindsym $mod+Shift+Right gaps inner current vertical plus 25
-bindsym $mod+Shift+Left  gaps inner current vertical minus 25
+# i3 gaps feature 54 spesific
+bindsym $mod+Shift+Up    gaps outer current vertical plus 25
+bindsym $mod+Shift+Down  gaps outer current vertical minus 25
+bindsym $mod+Shift+Right gaps outer current horizontal plus 25
+bindsym $mod+Shift+Left  gaps outer current horizontal minus 25
+# make space 1920x1080
+bindsym $mod+Shift+c gaps outer current vertical set 180; gaps outer current horizontal set 760
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id audio-device -c +5%       #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id audio-device -c \-5%      #decrease sound volume
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp   exec --no-startup-id sudo /home/bjornar/bin/screen-brightness -inc # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo /home/bjornar/bin/screen-brightness -dec # decrease screen brightness
 
 # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -47,6 +51,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run
+
+# Open file browser
+bindsym $mod+e exec --no-startup-id nautilus --no-desktop
 
 # Lock screen
 bindsym $mod+l exec --no-startup-id $HOME/.config/i3/screen-lock.sh
@@ -116,7 +123,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+t reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
