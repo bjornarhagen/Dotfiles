@@ -24,5 +24,5 @@ fi
 # add local 'pip' to PATH
 export PATH="${PATH}:${HOME}/.local/bin/"
 
-# start insync
-insync-headless
+# Make sure Xresources is used
+xrdb -merge .Xresources

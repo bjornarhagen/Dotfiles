@@ -9,6 +9,10 @@ PS1='[\u@\h \W]\$ '
 # Allows you to run aliases with sudo before them
 alias sudo="sudo "
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
 alias ls='ls --color=auto -a'
 
 alias emacs='emacs -nw'
