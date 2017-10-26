@@ -17,6 +17,7 @@ alias v='vim'
 export EDITOR='vim'
 
 alias nautilus='nautilus --no-desktop &'
+alias egrep='egrep --color=always'
 
 # Apply custom colorscheme
 (wal -r &)
