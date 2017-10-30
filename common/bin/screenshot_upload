@@ -1,0 +1,10 @@
+random=$RANDOM
+
+gnome-screenshot -a -f /tmp/${random}.png
+
+url=$(curl -H "X-API-KEY: fck5rfsZKfpdRbG4npSVz3Qz" -F "image[]=@/tmp/${random}.png" https://i.xdh.no/upload | jq '.files[0].url')
+
+url="${url%\"}"
+url="${url#\"}"
+
+google-chrome-stable $url &
