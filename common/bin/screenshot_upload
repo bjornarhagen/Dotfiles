@@ -1,10 +1,20 @@
+#!/bin/bash
+
 random=$RANDOM
 
+# Grab screenshot
 gnome-screenshot -a -f /tmp/${random}.png
 
+# Upload the image
 url=$(curl -H "X-API-KEY: fck5rfsZKfpdRbG4npSVz3Qz" -F "image[]=@/tmp/${random}.png" https://i.xdh.no/upload | jq '.files[0].url')
 
+# Remove quotes from url
 url="${url%\"}"
 url="${url#\"}"
 
-google-chrome-stable $url &
+# Copy url to clipboard
+echo $url | xclip -selection clipboard
+notify-send "Link copied to clipboard" --icon=dialog-information
+
+# Open url in browser
+# sensible-browser $url &
