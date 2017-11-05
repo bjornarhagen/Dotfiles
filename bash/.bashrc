@@ -17,8 +17,8 @@ alias ls='ls --color=auto -a'
 
 alias emacs='emacs -nw'
 
-alias v='vim'
-export EDITOR='vim'
+alias v='nvim'
+export EDITOR='nvim'
 
 alias egrep='egrep --color=always'
 
