@@ -23,3 +23,11 @@ colorscheme wal
 
 " Always open NERDTree
 autocmd vimenter * NERDTree
+
+" Custom keybind for vim-move
+let g:move_key_modifier = 'c-s'
+
+" Custom keybind for select next highlighted
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_start_key='<C-d>'
+
