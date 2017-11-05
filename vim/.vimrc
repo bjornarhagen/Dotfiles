@@ -24,8 +24,15 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 call plug#end()
 
+syntax enable
+
 " Set color scheme with pywal
-colorscheme wal
+" colorscheme wal
+colorscheme custom
+
+" Show line numers
+set number
+set numberwidth=5
 
 " Always open NERDTree
 autocmd vimenter * NERDTree
