@@ -18,6 +18,7 @@ mkdir ~/scripts
 stow_load ~/scripts scripts
 stow_load ~ common
 stow_load ~ cron
+stow_load ~ oh-my-zsh
 stow_load ~ bash
 stow_load ~ vim
 stow_load ~ x
