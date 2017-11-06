@@ -22,6 +22,8 @@ Plug 'matze/vim-move'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -36,7 +38,7 @@ set number
 set numberwidth=5
 
 " Always open NERDTree
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 
 " Custom keybind for vim-move
 let g:move_key_modifier = 'c-s'
@@ -72,7 +74,14 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+" Ctrl+space to complete line
 imap <c-space> <plug>(fzf-complete-line)
+
+" Ctrl+p to find files
 nnoremap <c-p> :Files<cr>
 inoremap <c-p> <Esc>:Files<cr>
+
+" Ctrl+shift+f to find a line
+noremap <c-s-f> :Lines<cr>
+inoremap <c-s-f> <Esc>:Lines<cr>
 
