@@ -85,3 +85,13 @@ inoremap <c-p> <Esc>:Files<cr>
 noremap <c-s-f> :Lines<cr>
 inoremap <c-s-f> <Esc>:Lines<cr>
 
+" Custom keybindings "
+inoremap <c-x> <Esc> <Shift-v>
+
+" Allow sudo save with w!!
+cmap w!! w !sudo tee > /dev/null %
+
+noremap <c-o> :!xclip -selection clipboard <<< "%:p:h"<cr>
+
+
+
