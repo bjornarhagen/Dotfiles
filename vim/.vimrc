@@ -35,7 +35,8 @@ colorscheme custom
 
 " Show line numers
 set number
-set numberwidth=5
+set foldcolumn=3
+set relativenumber
 
 " Always open NERDTree
 " autocmd vimenter * NERDTree
