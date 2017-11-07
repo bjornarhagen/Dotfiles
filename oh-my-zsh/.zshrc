@@ -102,7 +102,14 @@ alias emacs='emacs -nw'
 alias v='nvim'
 alias vim='nvim'
 
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 # Apply custom colorscheme
 (wal -r &)
+
+# custom username@host
+prompt_context() {  }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
