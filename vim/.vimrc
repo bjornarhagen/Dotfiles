@@ -153,20 +153,45 @@ set hlsearch         " hilight searches by default
 " use ESC to remove search higlight
 nnoremap <esc> :noh<return><esc>
 
+" ----------------------------- "
+" ---      Keybindings      --- "
+" ----------------------------- "
+
+" windows like clipboard
+" yank to and paste from the clipboard without prepending "* to commands
+let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
+" map c-x and c-v to work as they do in windows, only in insert mode
+vm <c-x> "+x
+vm <c-c> "+y
+cno <c-v> <c-r>+
+exe 'ino <script> <C-V>' paste#paste_cmd['i']
+
+" save with ctrl+s
+nmap <c-s> :w<CR>
+imap <c-s> <Esc>:w<CR>a
+
+" use <C-Space> for Vim's keyword autocomplete
+"  ...in the terminal
+inoremap <Nul> <C-n>
+"  ...and in gui mode
+inoremap <C-Space> <C-n>
+
 " Ctrl+p to find files
 nnoremap <c-p> :Files<cr>
 inoremap <c-p> <Esc>:Files<cr>
+
+" Search in file
+noremap <c-f> /
+inoremap <c-f> <Esc>/
 
 " Ctrl+shift+f to find a line
 noremap <c-s-f> :Lines<cr>
 inoremap <c-s-f> <Esc>:Lines<cr>
 
-" Custom keybindings "
-inoremap <c-x> <Esc> <Shift-v>
-
 " Allow sudo save with w!!
 cmap w!! w !sudo tee > /dev/null %
 
+" Copy file folder path to clipboard
 noremap <c-o> :!xclip -selection clipboard <<< "%:p:h"<cr>
 
 
