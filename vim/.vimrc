@@ -38,9 +38,13 @@ Plug 'bearhagen/vim-hybrid-material'
 call plug#end()
 
 
+" ----------------------------- "
+" --- Plugins customization --- "
+" ----------------------------- "
 
-" Always open NERDTree
-" autocmd vimenter * NERDTree
+" Always open NERDTree and focus active window
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 
 " Custom keybind for vim-move
 let g:move_key_modifier = 'c-s'
@@ -76,8 +80,10 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" Ctrl+space to complete line
-imap <c-space> <plug>(fzf-complete-line)
+" run JSHint when a file with .js extension is saved
+" this requires the jsHint2 plugin
+autocmd BufWritePost *.js silent :JSHint
+
 
 " Ctrl+p to find files
 nnoremap <c-p> :Files<cr>
