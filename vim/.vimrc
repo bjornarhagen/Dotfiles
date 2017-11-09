@@ -1,42 +1,43 @@
+" ----------------------------- "
+" ---      Load plugins     --- "
+" ----------------------------- "
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'jisaacks/GitGutter'
-Plug 'mattn/emmet-vim'
-Plug 'justinmk/vim-sneak'
-Plug 'ntpeters/vim-better-whitespace'
-" Plug 'Valloric/YouCompleteMe'
-Plug 'vim-syntastic/syntastic'
-Plug 'ap/vim-css-color'
-Plug 'bling/vim-airline'
-Plug 'junegunn/vim-easy-align'
-" Plug 'ctrlpvim/ctrlp.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'dylanaraps/wal.vim'
+" Functional
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'																						" Fuzzy finder
+Plug 'matze/vim-move'																							" Move lines or blocks of code up and down with k and j
+Plug 'tpope/vim-surround'																					" Change what sorrounds the code you are inside
+Plug 'vim-airline/vim-airline'																		" Lean & mean status/tabline
+Plug 'easymotion/vim-easymotion'																	" Search highlight and jump to result
+Plug 'terryma/vim-multiple-cursors'																" Allow multiple cursors
+" Web dev
+Plug 'mattn/emmet-vim'																						" Emmet
+Plug 'othree/html5.vim'																						" HTML5 omnicomplete and syntax
+Plug 'ap/vim-css-color'																						" Color highlighter
+Plug 'lumiliet/vim-twig'																					" Twig templating syntax
+Plug 'Shutnik/jshint2.vim'																				" Detect JS errors
+Plug 'jwalton512/vim-blade'																				" Blade templating syntax
+Plug 'hail2u/vim-css3-syntax'																			" CSS3 & SASS syntax highlighting
+Plug 'pangloss/vim-javascript'																		" Improved Javascript indentation and syntax
+Plug 'nathanaelkane/vim-indent-guides'														" Show indentation
+" Visual
+Plug 'junegunn/goyo.vim'																					" Distraction free mode
+Plug 'scrooloose/nerdtree'																				" Sidebar
+Plug 'airblade/vim-gitgutter'																			" Shows which lines have been added/removed/changed
+Plug 'vim-syntastic/syntastic'																		" runs syntax checkers and displays any errors
+Plug 'ntpeters/vim-better-whitespace'															" Highlights trailing whitespace
+" Aesthetics
+Plug 'tomasr/molokai'
+Plug 'sickill/vim-monokai'
+Plug 'dylanaraps/wal.vim'																					" Colorscheme based on wallpaperi
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'bearhagen/vim-hybrid-material'
-" Plug 'powerline/powerline'
-Plug 'matze/vim-move'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-" Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
-syntax enable
 
-" Set color scheme with pywal
-" colorscheme wal
-colorscheme custom
-
-" Show line numers
-set number
-set foldcolumn=3
-set relativenumber
 
 " Always open NERDTree
 " autocmd vimenter * NERDTree
