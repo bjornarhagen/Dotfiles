@@ -195,4 +195,11 @@ cmap w!! w !sudo tee > /dev/null %
 noremap <c-o> :!xclip -selection clipboard <<< "%:p:h"<cr>
 
 
+" ----------------------------- "
+" ---       File types      --- "
+" ----------------------------- "
 
+" Sets syntax to use for file extentions
+autocmd BufNewFile,BufRead *.md setlocal ft=markdown
+autocmd BufNewFile,BufRead *.twig setlocal ft=php
+autocmd BufNewFile,BufRead *.blade setlocal ft=php
