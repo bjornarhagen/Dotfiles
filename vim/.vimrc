@@ -38,9 +38,13 @@ Plug 'bearhagen/vim-hybrid-material'
 call plug#end()
 
 
+" ----------------------------- "
+" --- Plugins customization --- "
+" ----------------------------- "
 
-" Always open NERDTree
-" autocmd vimenter * NERDTree
+" Always open NERDTree and focus active window
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 
 " Custom keybind for vim-move
 let g:move_key_modifier = 'c-s'
@@ -76,24 +80,126 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" Ctrl+space to complete line
-imap <c-space> <plug>(fzf-complete-line)
+" run JSHint when a file with .js extension is saved
+" this requires the jsHint2 plugin
+autocmd BufWritePost *.js silent :JSHint
+
+" ----------------------------- "
+" --- General customization --- "
+" ----------------------------- "
+
+" encoding is utf 8
+set encoding=utf-8
+set fileencoding=utf-8
+
+" Turn on sytnax highlighting
+syntax enable
+colorscheme monokai
+" We want the background to be set by wal (pywal)
+hi Normal                 ctermbg=none guibg=none
+hi Number                 ctermbg=none guibg=none
+hi NonText                ctermbg=none guibg=none
+hi LineNr                 ctermbg=none guibg=none
+hi Foldcolumn             ctermbg=none guibg=none
+hi Relativenumber         ctermbg=none guibg=none
+hi DiffAdd                ctermbg=none guibg=none ctermfg=148 guifg=#a6e22e
+hi GitGutterAddDefault    ctermbg=none guibg=none ctermfg=148 guifg=#a6e22e
+hi DiffChange             ctermbg=none guibg=none ctermfg=186 guifg=#e6db74
+hi GitGutterChangeDefault ctermbg=none guibg=none ctermfg=186 guifg=#e6db74
+hi DiffDelete             ctermbg=none guibg=none ctermfg=197 guifg=#f92672
+hi GitGutterDeleteDefault ctermbg=none guibg=none ctermfg=197 guifg=#f92672
+hi DiffText               ctermbg=none guibg=none ctermfg=231 guifg=#f8f8f2 
+
+" Detect file type and load plugins
+filetype on
+filetype plugin on
+filetype indent on
+
+" line numers, left padding, tab width and don't wrap
+" set number
+set relativenumber
+set foldcolumn=3
+set tabstop=2
+set nowrap
+
+" keep the cursor visible within 3 lines when scrolling
+set scrolloff=3
+
+" reload files changed outside vim
+set autoread
+
+" by default, in insert mode backspace won't delete over line breaks, or
+" automatically-inserted indentation, let's change that
+set backspace=indent,eol,start
+
+" dont't unload buffers when they are abandoned, instead stay in the
+" background
+set hidden
+
+" set unix line endings
+set fileformat=unix
+" when reading files try unix line endings then dos, also use unix for new
+" buffers
+set fileformats=unix,dos
+
+" remove the .ext~ files, but not the swapfiles
+set nobackup
+set writebackup
+set noswapfile
+
+" search settings
+set incsearch        " find the next match as we type the search
+set hlsearch         " hilight searches by default
+" use ESC to remove search higlight
+nnoremap <esc> :noh<return><esc>
+
+" ----------------------------- "
+" ---      Keybindings      --- "
+" ----------------------------- "
+
+" windows like clipboard
+" yank to and paste from the clipboard without prepending "* to commands
+let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
+" map c-x and c-v to work as they do in windows, only in insert mode
+vm <c-x> "+x
+vm <c-c> "+y
+cno <c-v> <c-r>+
+exe 'ino <script> <C-V>' paste#paste_cmd['i']
+
+" save with ctrl+s
+nmap <c-s> :w<CR>
+imap <c-s> <Esc>:w<CR>a
+
+" use <C-Space> for Vim's keyword autocomplete
+"  ...in the terminal
+inoremap <Nul> <C-n>
+"  ...and in gui mode
+inoremap <C-Space> <C-n>
 
 " Ctrl+p to find files
 nnoremap <c-p> :Files<cr>
 inoremap <c-p> <Esc>:Files<cr>
 
+" Search in file
+noremap <c-f> /
+inoremap <c-f> <Esc>/
+
 " Ctrl+shift+f to find a line
 noremap <c-s-f> :Lines<cr>
 inoremap <c-s-f> <Esc>:Lines<cr>
 
-" Custom keybindings "
-inoremap <c-x> <Esc> <Shift-v>
-
 " Allow sudo save with w!!
 cmap w!! w !sudo tee > /dev/null %
 
+" Copy file folder path to clipboard
 noremap <c-o> :!xclip -selection clipboard <<< "%:p:h"<cr>
 
 
+" ----------------------------- "
+" ---       File types      --- "
+" ----------------------------- "
 
+" Sets syntax to use for file extentions
+autocmd BufNewFile,BufRead *.md setlocal ft=markdown
+autocmd BufNewFile,BufRead *.twig setlocal ft=php
+autocmd BufNewFile,BufRead *.blade setlocal ft=php
