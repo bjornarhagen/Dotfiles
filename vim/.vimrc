@@ -84,6 +84,74 @@ let g:fzf_colors =
 " this requires the jsHint2 plugin
 autocmd BufWritePost *.js silent :JSHint
 
+" ----------------------------- "
+" --- General customization --- "
+" ----------------------------- "
+
+" encoding is utf 8
+set encoding=utf-8
+set fileencoding=utf-8
+
+" Turn on sytnax highlighting
+syntax enable
+colorscheme monokai
+" We want the background to be set by wal (pywal)
+hi Normal                 ctermbg=none guibg=none
+hi Number                 ctermbg=none guibg=none
+hi NonText                ctermbg=none guibg=none
+hi LineNr                 ctermbg=none guibg=none
+hi Foldcolumn             ctermbg=none guibg=none
+hi Relativenumber         ctermbg=none guibg=none
+hi DiffAdd                ctermbg=none guibg=none ctermfg=148 guifg=#a6e22e
+hi GitGutterAddDefault    ctermbg=none guibg=none ctermfg=148 guifg=#a6e22e
+hi DiffChange             ctermbg=none guibg=none ctermfg=186 guifg=#e6db74
+hi GitGutterChangeDefault ctermbg=none guibg=none ctermfg=186 guifg=#e6db74
+hi DiffDelete             ctermbg=none guibg=none ctermfg=197 guifg=#f92672
+hi GitGutterDeleteDefault ctermbg=none guibg=none ctermfg=197 guifg=#f92672
+hi DiffText               ctermbg=none guibg=none ctermfg=231 guifg=#f8f8f2 
+
+" Detect file type and load plugins
+filetype on
+filetype plugin on
+filetype indent on
+
+" line numers, left padding, tab width and don't wrap
+" set number
+set relativenumber
+set foldcolumn=3
+set tabstop=2
+set nowrap
+
+" keep the cursor visible within 3 lines when scrolling
+set scrolloff=3
+
+" reload files changed outside vim
+set autoread
+
+" by default, in insert mode backspace won't delete over line breaks, or
+" automatically-inserted indentation, let's change that
+set backspace=indent,eol,start
+
+" dont't unload buffers when they are abandoned, instead stay in the
+" background
+set hidden
+
+" set unix line endings
+set fileformat=unix
+" when reading files try unix line endings then dos, also use unix for new
+" buffers
+set fileformats=unix,dos
+
+" remove the .ext~ files, but not the swapfiles
+set nobackup
+set writebackup
+set noswapfile
+
+" search settings
+set incsearch        " find the next match as we type the search
+set hlsearch         " hilight searches by default
+" use ESC to remove search higlight
+nnoremap <esc> :noh<return><esc>
 
 " Ctrl+p to find files
 nnoremap <c-p> :Files<cr>
