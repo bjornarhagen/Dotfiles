@@ -108,6 +108,7 @@ fi
 
 # Apply custom colorscheme
 (wal -Rq &)
+xrdb -merge .Xresources
 
 # custom username@host
 prompt_context() {  }
