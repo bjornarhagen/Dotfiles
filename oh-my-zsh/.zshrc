@@ -107,7 +107,7 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 # Apply custom colorscheme
-(wal -r &)
+(wal -Rq &)
 
 # custom username@host
 prompt_context() {  }
