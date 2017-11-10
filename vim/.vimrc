@@ -194,6 +194,19 @@ cmap w!! w !sudo tee > /dev/null %
 " Copy file folder path to clipboard
 noremap <c-o> :!xclip -selection clipboard <<< "%:p:h"<cr>
 
+" Emmet
+let g:user_emmet_expandabbr_key='<Tab>'
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+" Make selections
+inoremap <s-Home> <Esc>v<Home>
+inoremap <s-End> <Esc>v<End>
+inoremap <s-PageUp> <Esc>v<PageUp>
+inoremap <s-PageDown> <Esc>v<PageDown>
+inoremap <s-Up> <Esc>v<Up>
+inoremap <s-Right> <Esc><Right>v<Right>
+inoremap <s-Down>  <Esc>v<Down>
+inoremap <s-Left> <Esc><Right>v<Left>
 
 " ----------------------------- "
 " ---       File types      --- "
