@@ -123,7 +123,7 @@ set tabstop=2
 set nowrap
 
 " keep the cursor visible within 3 lines when scrolling
-set scrolloff=3
+set scrolloff=7
 
 " reload files changed outside vim
 set autoread
