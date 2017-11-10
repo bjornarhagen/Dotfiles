@@ -28,4 +28,4 @@ fi
 
 
 # Make sure Xresources is used
-xrdb -merge .Xresources
+xrdb -merge "$HOME/Xresources"
