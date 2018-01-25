@@ -68,7 +68,7 @@ do
 												do
 																case $php_yn in
 																				Yes )
-																								install "php-fpm"
+																								install "php-fpm php-mbstring php-dom"
 																								break;;
 																				No)
 																								break;;

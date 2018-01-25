@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/bjornar/.oh-my-zsh
+export ZSH=/home/bjornar/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -104,6 +104,14 @@ alias vim='nvim'
 
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+if [ -d "$HOME/.config/composer/vendor/bin" ]; then
+    PATH="$HOME/.config/composer/vendor/bin:$PATH"
 fi
 
 # Apply custom colorscheme

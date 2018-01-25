@@ -24,3 +24,5 @@ alias egrep='egrep --color=always'
 
 # Apply custom colorscheme
 (wal -r &)
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
