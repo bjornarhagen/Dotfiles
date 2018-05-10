@@ -6,7 +6,7 @@ random=$RANDOM
 gnome-screenshot -a -f /tmp/${random}.png
 
 # Upload the image
-url=$(curl -H "X-API-KEY: fck5rfsZKfpdRbG4npSVz3Qz" -F "image[]=@/tmp/${random}.png" https://i.xdh.no/upload | jq '.files[0].url')
+url=$(curl -H "X-API-KEY: secret" -F "image[]=@/tmp/${random}.png" https://i.xdh.no/upload | jq '.files[0].url')
 
 # Remove quotes from url
 url="${url%\"}"
