@@ -21,3 +21,8 @@ xbacklight was not working for my laptop, so I had to make my own script, which 
 
 This needs to be added to sudoers file:
 USERNAME PC=(ALL) NOPASSWD: /home/USERNAME/bin/screen-brightness
+
+## How to install
+
+1. Checkout the repo into for example `~/.dotfiles`.
+2. Make symbolic links. For example: `ln -s ~/.dotfiles/vim/.vimrc .vimrc`
