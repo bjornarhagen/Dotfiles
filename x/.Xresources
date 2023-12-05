@@ -1,6 +1,6 @@
 ! Bjornars Xresources
 
-URxvt*font:     xft:Roboto Mono:pixelsize=16
+URxvt*font:     xft:UbuntuMono-R:pixelsize=16
 
 URxvt.internalBorder: 25
 URxvt*scrollBar: false

@@ -13,9 +13,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-alias ls='ls --color=auto -a'
-
-alias emacs='emacs -nw'
+alias ls='ls -a --color=auto'
+alias ll='ls -lha --color=auto'
 
 alias v='nvim'
 export EDITOR='nvim'
@@ -23,6 +22,7 @@ export EDITOR='nvim'
 alias egrep='egrep --color=always'
 
 # Apply custom colorscheme
-(wal -r &)
+#(wal -r &)
+#(cat ~/.cache/wal/sequences &)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

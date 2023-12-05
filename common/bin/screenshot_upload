@@ -3,18 +3,19 @@
 random=$RANDOM
 
 # Grab screenshot
-gnome-screenshot -a -f /tmp/${random}.png
+#gnome-screenshot -a -f /tmp/${random}.png
+gnome-screenshot -a 
 
 # Upload the image
-url=$(curl -H "X-API-KEY: secret" -F "image[]=@/tmp/${random}.png" https://i.xdh.no/upload | jq '.files[0].url')
+#url=$(curl -H "X-API-KEY: secret" -F "image[]=@/tmp/${random}.png" https://i.xdh.no/upload | jq '.files[0].url')
 
 # Remove quotes from url
-url="${url%\"}"
-url="${url#\"}"
+#url="${url%\"}"
+#url="${url#\"}"
 
 # Copy url to clipboard
-echo $url | xclip -selection clipboard
-notify-send "Link copied to clipboard" --icon=dialog-information
+#echo $url | xclip -selection clipboard
+#notify-send "Link copied to clipboard" --icon=dialog-information
 
 # Open url in browser
 # sensible-browser $url &

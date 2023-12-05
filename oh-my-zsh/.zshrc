@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/bjornar/.oh-my-zsh
+export ZSH=/home/b/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -98,27 +98,28 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-alias emacs='emacs -nw'
-alias v='nvim'
-alias vim='nvim'
+#alias v='nvim'
+#alias vim='nvim'
 
 if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
+  PATH="$HOME/.local/bin:$PATH"
 fi
 
 if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
+  PATH="$HOME/bin:$PATH"
 fi
 
 if [ -d "$HOME/.config/composer/vendor/bin" ]; then
-    PATH="$HOME/.config/composer/vendor/bin:$PATH"
+  PATH="$HOME/.config/composer/vendor/bin:$PATH"
 fi
 
-# Apply custom colorscheme
-(wal -Rq &)
-xrdb -merge .Xresources
+## custom username@host
+#prompt_context() {; }
 
-# custom username@host
-prompt_context() {  }
-
+# fzf - fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# asdf - version manager
+. "$HOME/.asdf/asdf.sh"
+fpath=(${ASDF_DIR}/completions $fpath)
+autoload -Uz compinit && compinit

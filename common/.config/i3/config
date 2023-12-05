@@ -4,44 +4,55 @@ set $mod Mod4
 floating_modifier $mod
 
 # Hide border and titlebar
-new_window pixel 0
+#new_window pixel 0
+new_window pixel 5
 hide_edge_borders both
 
 # Gaps controls
-gaps inner 50 # initial gaps
+## initial gaps
+#gaps inner 50px
+gaps vertical 100
+gaps horizontal 200
+gaps inner 25
 
-bindsym $mod+Shift+plus  gaps inner current plus 25
-bindsym $mod+Shift+minus gaps inner current minus 25
+bindsym $mod+Shift+minus gaps inner current plus 25
+bindsym $mod+Shift+plus  gaps inner current minus 25
 bindsym $mod+Shift+0     gaps inner current set 0; gaps outer current set 0
 
 # i3 gaps feature 54 spesific
-bindsym $mod+Shift+Up    gaps outer current vertical plus 25
-bindsym $mod+Shift+Down  gaps outer current vertical minus 25
-bindsym $mod+Shift+Right gaps outer current horizontal plus 25
-bindsym $mod+Shift+Left  gaps outer current horizontal minus 25
-# make space 1920x1080
-bindsym $mod+Shift+c gaps outer current vertical set 180; gaps outer current horizontal set 760
+bindsym $mod+Shift+Down  gaps vertical current plus 25
+bindsym $mod+Shift+Up    gaps vertical current minus 25
+bindsym $mod+Shift+Left  gaps horizontal current plus 25
+bindsym $mod+Shift+Right gaps horizontal current minus 25
+# center 1 pane
+bindsym $mod+Shift+c gaps vertical all set 100; gaps horizontal all set 200; gaps inner current set 25
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id audio-device -c +5%       #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id audio-device -c \-5%      #decrease sound volume
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#bindsym XF86AudioRaiseVolume exec --no-startup-id audio-device -c +5%       #increase sound volume
+#bindsym XF86AudioLowerVolume exec --no-startup-id audio-device -c \-5%      #decrease sound volume
+#bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@   +5%   && $refresh_i3status && notify-send "Volume up"
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@   -5%   && $refresh_i3status && notify-send "Volume down"
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@   toggle && $refresh_i3status && notify-send "Volume muted"
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status && notify-send "Mic muted"
 
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp   exec --no-startup-id sudo /home/bjornar/bin/screen-brightness -inc # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id sudo /home/bjornar/bin/screen-brightness -dec # decrease screen brightness
+# Screen brightness controls
+bindsym XF86MonBrightnessUp   exec --no-startup-id sudo $HOME/bin/screen-brightness -inc # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo $HOME/bin/screen-brightness -dec # decrease screen brightness
 
 # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPlay  exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
 
 # Get last wal config
-exec_always --no-startup-id wal -R
+exec_always --no-startup-id (cat ~/.cache/wal/sequences &)
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -50,13 +61,14 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run
+#bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+space exec --no-startup-id dmenu_run
 
 # Open file browser
 bindsym $mod+e exec --no-startup-id nautilus --no-desktop
 
 # Lock screen
-bindsym $mod+l exec --no-startup-id $HOME/.config/i3/screen-lock.sh
+bindsym $mod+Shift+q exec --no-startup-id $HOME/.config/i3/screen-lock.sh
 
 # kill focused window
 bindsym Control+Shift+w kill
@@ -65,17 +77,23 @@ bindsym Control+Shift+w kill
 bindsym mod1+Tab focus right
 bindsym mod1+Shift+Tab focus left
 
-# Move windows with super key
-bindsym $mod+Left move left
-bindsym $mod+Down move down
-bindsym $mod+Up move up
-bindsym $mod+Right move right
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # Center focused window
 bindsym $mod+c move position center
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+s split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -84,15 +102,15 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Shift+s layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -131,26 +149,26 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -164,9 +182,29 @@ set_from_resource $bg i3wm.color2 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       #000000
+client.unfocused        #000000 $bg     $fg  $bg       #000000
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 client.background       $bg
 
+# Other shortcuts
+exec_always --no-startup-id setxkbmap -option compose:caps
+
+
+# Default i3 stuff
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
