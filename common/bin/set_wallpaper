@@ -1,0 +1,7 @@
+#!/bin/bash
+
+feh --bg-scale --zoom cover ~/Pictures/wallpaper.jpg || feh --bg-scale --zoom cover ~/Pictures/wallpaper.png
+wal -i ~/Pictures/wallpaper.jpg || wal -i ~/Pictures/wallpaper.png 
+
+(cat ~/.cache/wal/sequences &)
+xrdb -merge "$HOME/.Xresources"

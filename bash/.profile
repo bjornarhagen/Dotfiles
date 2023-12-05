@@ -17,7 +17,7 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
@@ -26,6 +26,6 @@ if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+#xrandr --output HDMI-0 --mode 2160x1440 || xrandr --output HDMI-1 --mode 2160x1440
 
-# Make sure Xresources is used
-xrdb -merge "$HOME/Xresources"
+set_wallpaper
