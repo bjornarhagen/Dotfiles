@@ -31,16 +31,10 @@ Then change `/etc/apt/sources.list.d/sur5r-i3.list`:
 
 This sets the arch, adds signed by and changes from http to https.
 
-## Config
+## How to install
 
-## Extra
-
-### Screen brightness
-
-xbacklight was not working for my laptop, so I had to make my own script, which writes the value to file.
-
-This needs to be added to sudoers file:
-USERNAME PC=(ALL) NOPASSWD: /home/USERNAME/bin/screen-brightness
+1. Checkout the repo into for example `~/.dotfiles`.
+2. Make symbolic links. For example: `ln -s ~/.dotfiles/vim/.vimrc .vimrc`
 
 ## Usage guide
 
@@ -59,7 +53,7 @@ $mod+Shift+C - Center windows / resets gaps
 
 $mod+shift+space - Toggle floating (hold $mod to drag windows)
 
-Look in the i3 config for more
+Look in the i3 config for more·
 
 ### Shortcuts
 
