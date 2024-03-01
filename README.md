@@ -87,3 +87,7 @@ Here some common ones:
 - Compose + A + E = Æ
 - Compose + a + a = å
 - Compose + A + A = Å
+
+More info:
+- https://en.wikipedia.org/wiki/Compose_key#Common_compose_combinations
+- https://henrik242.dk/danish-and-other-special-characters-with-ubuntu-linux-on-macbook-pro/
