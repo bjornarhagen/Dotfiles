@@ -1,6 +1,5 @@
 vim/.vim/plugged
 .gitconfig
-
 common/\.config/dunst/\.volum
-
 common/\.config/dunst/\.volume
+scripts/dotfiles/.meta-*
