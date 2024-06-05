@@ -42,22 +42,22 @@ Mod4/Super key is the main modifier key, called $mod.
 
 ### Window management
 
-$mod+Shift+minus - Increase gaps by 25 (minus because it decreases window sizes)
-$mod+Shift+plus - Decrease gaps by 25
-$mod+Shift+0 - Set gaps to 0
-$mod+Shift+Down Increase vertical gaps by 25
-$mod+Shift+Up - Decrease vertical gaps by 25
-$mod+Shift+Left - Increase horizontal gaps by 25
-$mod+Shift+Right - Decrease horizontal gaps by 25
-$mod+Shift+C - Center windows / resets gaps
-
-$mod+shift+space - Toggle floating (hold $mod to drag windows)
+-   $mod+Shift+minus - Increase gaps by 25 (minus because it decreases window sizes)
+-   $mod+Shift+plus - Decrease gaps by 25
+-   $mod+Shift+0 - Set gaps to 0
+-   $mod+Shift+Down Increase vertical gaps by 25
+-   $mod+Shift+Up - Decrease vertical gaps by 25
+-   $mod+Shift+Left - Increase horizontal gaps by 25
+-   $mod+Shift+Right - Decrease horizontal gaps by 25
+-   $mod+Shift+C - Center windows / resets gaps
+-   $mod+shift+space - Toggle floating (hold $mod to drag windows)
 
 Look in the i3 config for more·
 
 ### Shortcuts
 
 $mod+Shift+Q - Lock screen
+
 The screen lock is a bit odd, but works. To unlock just type your password. There is no visible input area. So if you can see the screen lock, you can type your password right away, then press enter to unlock.
 
 $mod+Shift+W - Kill focused window.
@@ -70,6 +70,7 @@ $mod+Shift+W - Kill focused window.
 #### AlsaMixer
 
 This is a great program for advanced audio settings
+
 If you do F6 to select a sound card, you can select the Blue Yeti and adjust the monitor volume.
 
 ### Programs (GUI)
@@ -79,6 +80,7 @@ If you do F6 to select a sound card, you can select the Blue Yeti and adjust the
 ### Non US letters
 
 I've set the compose key to be caps lock.
+
 Here some common ones:
 
 -   Compose + o + / = ø
