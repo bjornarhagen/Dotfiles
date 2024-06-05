@@ -2,24 +2,24 @@
 
 ## Dependencies
 
-- ~~i3-gaps~~ (Merged into i3)
-- i3
-- i3-lock
-- polybar
-- dunst
-- dunstify
-- PulseAudio
-- wal (pywal)
-- stow
-- python 3.5+
-- imagemagick
-- vim
-- urxvt (rxvt-unicode)
+-   ~~i3-gaps~~ (Merged into i3)
+-   i3
+-   i3-lock
+-   polybar
+-   dunst
+-   dunstify
+-   PulseAudio
+-   wal (pywal)
+-   stow
+-   python 3.5+
+-   imagemagick
+-   vim
+-   urxvt (rxvt-unicode)
 
 ### Getting ready
 
-- `apt install rxvt-unicode zsh python3-pip fzf polybar`
-- `pip3 install pywal`
+-   `apt install rxvt-unicode zsh python3-pip fzf polybar`
+-   `pip3 install pywal`
 
 Setup i3 ppa
 
@@ -34,7 +34,7 @@ This sets the arch, adds signed by and changes from http to https.
 ## How to install
 
 1. Checkout the repo into for example `~/.dotfiles`.
-2. Make symbolic links. For example: `ln -s ~/.dotfiles/vim/.vimrc .vimrc`
+1. Run install script: `./install.sh` (experimental), or make symbolic links manually. For example: `ln -s ~/.dotfiles/vim/.vimrc .vimrc`
 
 ## Usage guide
 
@@ -64,8 +64,8 @@ $mod+Shift+W - Kill focused window.
 
 ### Programs (CLI/TUI)
 
-- ranger (aliased to r) - File explorer
-- bluetooth-sync-fix ($mod+shift and search for it) - Fixes Bluetooth audio going out of sync with video
+-   ranger (aliased to r) - File explorer
+-   bluetooth-sync-fix ($mod+shift and search for it) - Fixes Bluetooth audio going out of sync with video
 
 #### AlsaMixer
 
@@ -74,20 +74,21 @@ If you do F6 to select a sound card, you can select the Blue Yeti and adjust the
 
 ### Programs (GUI)
 
-- Timeshift - Backups (/etc/timeshift/timeshift.json)
+-   Timeshift - Backups (/etc/timeshift/timeshift.json)
 
 ### Non US letters
 
 I've set the compose key to be caps lock.
 Here some common ones:
 
-- Compose + o + / = ø
-- Compose + O + / = Ø
-- Compose + a + e = æ
-- Compose + A + E = Æ
-- Compose + a + a = å
-- Compose + A + A = Å
+-   Compose + o + / = ø
+-   Compose + O + / = Ø
+-   Compose + a + e = æ
+-   Compose + A + E = Æ
+-   Compose + a + a = å
+-   Compose + A + A = Å
 
 More info:
-- https://en.wikipedia.org/wiki/Compose_key#Common_compose_combinations
-- https://henrik242.dk/danish-and-other-special-characters-with-ubuntu-linux-on-macbook-pro/
+
+-   https://en.wikipedia.org/wiki/Compose_key#Common_compose_combinations
+-   https://henrik242.dk/danish-and-other-special-characters-with-ubuntu-linux-on-macbook-pro/
