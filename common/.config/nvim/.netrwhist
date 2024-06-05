@@ -1,4 +1,3 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-// let g:netrw_dirhist_1='/home/bjornar/Drive/Bear Hagen/resources/wallpapers/linux'
-let g:netrw_dirhist_1='/home/b/Pictures'
+let g: netrw_dirhistmax = 10;
+let g: netrw_dirhist_cnt = 1;
+let g: netrw_dirhist_1 = "$HOME/Pictures";
