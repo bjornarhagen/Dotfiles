@@ -43,16 +43,31 @@ select d in "Ubuntu" "Debian" "Other"; do
 done
 
 # Ask if they want to setup symlinks with stow
-printf "\n🦬 Do you wish to install stow (for symlinks)?\n"
+printf "\n🦬 Do you wish to setup symlinks for the config files with stow?\n"
 select yn in "Yes" "No"; do
     case $yn in
     Yes)
         # Install stow, if not already installed
         stow_installed=$(which stow)
         if [ -z "$stow_installed" ]; then
+            echo "Stow is not installed, installing now..."
             install "stow"
-        else
-            echo "Stow is already installed"
+        fi
+
+        # Check if stow has already been run
+        if [ -f "$dotfiles_location/scripts/dotfiles/.meta-stow-has-run" ]; then
+            echo "Symlinks has already been setup with stow, do you want to run it again?"
+            select stow_yn in "Yes" "No"; do
+                case $stow_yn in
+                Yes)
+                    break
+                    ;;
+                No)
+                    echo "Skipping symlink setup"
+                    exit
+                    ;;
+                esac
+            done
         fi
 
         # Setup symlinks in home dir to .dotfiles
@@ -70,6 +85,8 @@ select yn in "Yes" "No"; do
         stow_load ~ bash
         stow_load ~ vim
         stow_load ~ x
+
+        touch $dotfiles_location/scripts/dotfiles/.meta-stow-has-run
         printf "Done!"
         break
         ;;
@@ -139,9 +156,9 @@ select yn in "Yes" "No"; do
         ;;
     No)
         echo "Composer will not be installed."
-        exit
         ;;
     esac
 done
 
 printf "\n\n✨ All done! ✨\n\n"
+exit
