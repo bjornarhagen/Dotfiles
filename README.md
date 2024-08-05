@@ -3,8 +3,8 @@
 ## Dependencies
 
 -   ~~i3-gaps~~ (Merged into i3)
--   i3
--   i3-lock
+-   ~~i3~~ replaced by Sway for Wayland support
+-   ~~i3-lock~~ sway-lock
 -   polybar
 -   dunst
 -   dunstify
@@ -16,7 +16,9 @@
 -   vim
 -   urxvt (rxvt-unicode)
 
-### Getting ready
+## Getting ready
+
+This section is outdated and needs an update
 
 -   `apt install rxvt-unicode zsh python3-pip fzf polybar`
 -   `pip3 install pywal`
@@ -52,7 +54,7 @@ Mod4/Super key is the main modifier key, called $mod.
 -   $mod+Shift+C - Center windows / resets gaps
 -   $mod+shift+space - Toggle floating (hold $mod to drag windows)
 
-Look in the i3 config for more·
+Look in the sway config for more·
 
 ### Shortcuts
 
@@ -94,3 +96,7 @@ More info:
 
 -   https://en.wikipedia.org/wiki/Compose_key#Common_compose_combinations
 -   https://henrik242.dk/danish-and-other-special-characters-with-ubuntu-linux-on-macbook-pro/
+
+## GNOME setup
+
+See [GNOME](docs/gnome.md)
