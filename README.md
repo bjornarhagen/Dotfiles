@@ -73,7 +73,7 @@ $mod+Shift+W - Kill focused window.
 
 This is a great program for advanced audio settings
 
-If you do F6 to select a sound card, you can select the Blue Yeti and adjust the monitor volume.
+If you do F6 to select a sound card, you can select the Blue Yeti and adjust the monitor volume. Usually you have "Speakers" and "Mic" as outputs, and "Capture" as input. Adjusting the "Mic" speaker will change how much you hear what the microphone is capturing.
 
 ### Programs (GUI)
 
