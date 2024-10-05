@@ -2,6 +2,10 @@
 
 If you are using GNOME instead of Sway, here are some tips and tricks.
 
+## Keyboard shortcuts
+
+By default alt+tab switches between applications, which is annoyting when you have multiple instances of a single application. To fix this go to settings -> keyboard shortcuts -> search for "switch windows" and assign that to alt+tab instead.
+
 ## Custom theme
 
 1. Make sure GNOME Shell Extentions is installed (should be by default): https://extensions.gnome.org/
